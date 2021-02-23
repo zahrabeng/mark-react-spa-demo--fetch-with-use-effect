@@ -1,4 +1,4 @@
-# `useEffect` intro
+# `fetch` with `useEffect`
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a>
 
@@ -8,19 +8,23 @@ You've been using React's `useState` hook - which is by far the most common and 
 
 ## Learning Outcomes
 
-- Predict when a `useEffect`'s callback will run
-- Explain the role of `useEffect` dependency array
+- Use `fetch` inside a `useEffect` hook with an `async` function definition
+- Use `fetch` inside a `useEffect` hook by chaining a `.then` callback
+- Explain the significance of an empty dependency array
+- Use the `&&` short-circuit conditional rendering strategy
 
 ## Navigating the demo
 
-> 🎯 **Success criterion:** You can explain the `console.log`s that appear in the browser console
+> 🎯 **Success criterion:** You can use the `fetch` and `useEffect` recipe to load data from an API without a user needing to take action
 
-You'll see in the demo that `useEffect` takes two arguments:
+The demo shows `fetch` in a `useEffect` in two different styles:
 
-1. A callback function
-2. An array
+1. With promise `.then` chaining
+2. With `async`/`await`
 
-Here's roughly how `useEffect` works:
+The most important thing to observe with #2 is that the `useEffect` callback does two things:
 
-1. On every render of the component, it checks the values in its the dependency array
-2. If _any_ of the values in the array have changed since the last render, then `useEffect` executes its callback
+1. Defines an `async` function
+2. Executes the `async` function it just defined
+
+This is a slightly odd pattern but it comes down to the fact that `useEffect` can only take a non-`async` function as its callback (that's just the way it's written), so this is a way of getting around that.

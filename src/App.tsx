@@ -32,6 +32,14 @@ function App() {
     <>
       <h1>Joke app</h1>
       {joke && (
+        // This is a conditional rendering strategy
+        //  using 'short-circuiting': if the left-hand
+        //  side of an && is false, then JavaScript
+        //  doesn't bother to evaluate the right-hand
+        //  side (since the overall expression is false
+        //  regardless)
+        //
+        // Exploiting that feature to conditional render JSX!
         <>
           <p>
             <b>{joke.setup}</b>
