@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     const fetchJoke = async () => {
       const response = await fetch(
-        "https://official-joke-api.appspot.com/jokes/general/random"
+        "https://jokestemp.neillbogie.repl.co/jokes/general/random"
       );
       const jsonBody: Joke[] = await response.json();
       setJoke(jsonBody[0]);
@@ -23,7 +23,7 @@ function App() {
   }, []);
 
   // useEffect(() => {
-  //   fetch("https://official-joke-api.appspot.com/jokes/general/random")
+  //   fetch("https://jokestemp.neillbogie.repl.co/jokes/general/random")
   //     .then(response => response.json())
   //     .then((jsonBody: Joke[]) => setJoke(jsonBody[0]));
   // }, [])
