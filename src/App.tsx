@@ -7,23 +7,23 @@ interface Quote {
 function App() {
   const [quote, setQuote] = useState<Quote |string>();
 
-  useEffect(() => {
-    const fetchQuote = async () => {
-      const response = await fetch(
-        "https://api.kanye.rest"
-      );
-      const jsonBody: Quote = await response.json();
-      setQuote(jsonBody.quote);
-    };
-
-    fetchQuote();
-  }, []);
-
   // useEffect(() => {
-  //   fetch("https://Quotestemp.neillbogie.repl.co/Quotes/general/random")
-  //     .then(response => response.json())
-  //     .then((jsonBody: Quote[]) => setQuote(jsonBody[0]));
-  // }, [])
+  //   const fetchQuote = async () => {
+  //     const response = await fetch(
+  //       "https://api.kanye.rest"
+  //     );
+  //     const jsonBody: Quote = await response.json();
+  //     setQuote(jsonBody.quote);
+  //   };
+
+  //   fetchQuote();
+  // }, []);
+
+  useEffect(() => {
+    fetch("https://api.kanye.rest")
+      .then(response => response.json())
+      .then((jsonBody: Quote) => setQuote(jsonBody.quote));
+  }, [])
 
   return (
     <>
